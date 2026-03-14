@@ -14,7 +14,7 @@ osname = os.name
 defaultpath = ""
 
 def folderSetup():
-    print("Source Organiser Version 1.0.0.5. Copyright (c) 2025-2026 Nicholas Lim.")
+    print("Source Organiser Version 1.0.0.6. Copyright (c) 2025-2026 Nicholas Lim.")
     global defaultpath
     if osname == "nt":
         defaultpath = rf"{os.path.expandvars("%USERPROFILE%")}\Documents\source-organiser"
@@ -27,7 +27,7 @@ def folderSetup():
         while True:
             setupcheck = input(f"The required directory '{defaultpath}' is not found.\nWould you like to create it now? (Type Y or N): ").lower()
             if setupcheck == "y":
-                os.mkdir(defaultpath)
+                os.makedirs(defaultpath)
                 os.chdir(defaultpath)
                 if osname == "nt":
                     defaultpath = rf"{os.path.expandvars("%USERPROFILE%")}\Documents\source-organiser"
@@ -143,7 +143,7 @@ rename: Rename a folder.""")
                     
                     # About command.
                     elif command.lower() == "about":
-                        print("Source Organiser Version 1.0.0.5.\nA user-friendly CLI file organiser for developers with more human-readable commands.\nCopyright (c) 2025-2026 Nicholas Lim.\nView source at https://github.com/Nicholas1023/source-organiser.")
+                        print("Source Organiser Version 1.0.0.6.\nA user-friendly CLI file organiser for developers with more human-readable commands.\nCopyright (c) 2025-2026 Nicholas Lim.\nView source at https://github.com/Nicholas1023/source-organiser.")
 
                     # Exit command.
                     elif command.lower() == "exit":
