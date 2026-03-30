@@ -24,7 +24,7 @@ You can install Source Organiser using the command: `pip install source-organise
 ## Using as a Module
 - `folderSetup()`: Ensure the necessary directories are available.
 - `folderCreate()`: Create folders.
-- `mainInterface(name)`: Starts the interface. Set `name` to name of folder or `0` to ignore this parameter.
+- `mainInterface(name)`: Starts the interface. Set `name` to the name of folder or `0` to ignore this parameter.
 
 ## Using as an Application
 Run `source-organiser` in your terminal to use Source Organiser as an application.
