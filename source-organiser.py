@@ -14,7 +14,7 @@ osname = os.name
 defaultpath = ""
 
 def folderSetup():
-    print("Source Organiser Version 1.0.0.8. Copyright (c) 2025-2026 Nicholas Lim.")
+    print("Source Organiser Version 1.0.0.9. Copyright (c) 2025-2026 Nicholas Lim.")
     global defaultpath
     if osname == "nt":
         defaultpath = rf"{os.path.expandvars("%USERPROFILE%")}\Documents\source-organiser"
@@ -113,7 +113,7 @@ def mainInterface(name):
                     contents = json.load(open(f"metadata.json", "r"))
                     print(f"ID: {contents["id"]}")
                 except:
-                    print("Warning: Unable to retrive ID from 'metadata.json'.")
+                    print("Warning: Unable to retrive ID from 'metadata.json'. Run 'generate-metadata' to fix this issue.")
                     checkexit = True
                     exitcode = 2
                 print("Enter 'help' to get started!")
@@ -140,7 +140,7 @@ rename: Rename a folder.""")
                     
                     # About command.
                     elif command.lower() == "about":
-                        print("Source Organiser Version 1.0.0.8.\nA user-friendly CLI file organiser for developers with more human-readable commands.\nCopyright (c) 2025-2026 Nicholas Lim.\nView source at https://github.com/Nicholas1023/source-organiser.")
+                        print("Source Organiser Version 1.0.0.9.\nA user-friendly CLI file organiser for developers with more human-readable commands.\nCopyright (c) 2025-2026 Nicholas Lim.\nView source at https://github.com/Nicholas1023/source-organiser.")
 
                     # Exit command.
                     elif command.lower() == "exit":
@@ -152,6 +152,28 @@ rename: Rename a folder.""")
                             log.write(f"\n{datetime.now()}: Session ended. (Exit code 0)")
                             log.close()
                             sys.exit(0)
+
+                    elif command.lower() == "generate-metadata":
+                        with open(f"{folderdir}/folder.log", "a+") as log:
+                            with open(f"{folderdir}/metadata.json", "w+") as metadata:
+                                metadata.write('{"id": "", "name": ""}')
+                                metadata.seek(0)
+                                load(0, "Copying 'metadata.json'...")
+                                log.write(f"\n{datetime.now()}: 'metadata.json' copied.")
+                                contents = json.load(metadata)
+                                load(20, "Loading 'metadata.json'...")
+                                contents["name"] = folder
+                                load(40, "Editing 'metadata.json'...")
+                                id = str(uuid.uuid4())
+                                load(60, "Editing 'metadata.json'...")
+                                contents["id"] = id
+                                load(80, "Editing 'metadata.json'...")
+                                metadata.seek(0)
+                                metadata.truncate()
+                                json.dump(contents, metadata)
+                                load(100, "'metadata.json' created.\n")
+                                log.write(f"\n{datetime.now()}: 'metadata.json' created.")
+                                checkexit = False
                     
                     # Clear screen command.
                     elif command.lower() == "clear":
