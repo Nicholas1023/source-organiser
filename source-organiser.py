@@ -14,7 +14,7 @@ osname = os.name
 defaultpath = ""
 
 def folderSetup():
-    print("Source Organiser Version 1.0.0.9. Copyright (c) 2025-2026 Nicholas Lim.")
+    print("Source Organiser Version 1.0.1. Copyright (c) 2025-2026 Nicholas Lim.")
     global defaultpath
     if osname == "nt":
         defaultpath = rf"{os.path.expandvars("%USERPROFILE%")}\Documents\source-organiser"
@@ -132,6 +132,7 @@ create: Creates a new file or folder within the folder.
 remove: Removes the current folder.
         Add '--noprompt' or '-n' to remove confirmation prompts.
 exit:   Quits this interface.
+generate-metadata: Regenerates metadata files.
 help:   Display this message.
 info:   Display information about the selected folder.
 log:    Load the folder's log file.
@@ -140,7 +141,7 @@ rename: Rename a folder.""")
                     
                     # About command.
                     elif command.lower() == "about":
-                        print("Source Organiser Version 1.0.0.9.\nA user-friendly CLI file organiser for developers with more human-readable commands.\nCopyright (c) 2025-2026 Nicholas Lim.\nView source at https://github.com/Nicholas1023/source-organiser.")
+                        print("Source Organiser Version 1.0.1.\nA user-friendly CLI file organiser for developers with more human-readable commands.\nCopyright (c) 2025-2026 Nicholas Lim.\nView source at https://github.com/Nicholas1023/source-organiser.")
 
                     # Exit command.
                     elif command.lower() == "exit":

@@ -16,6 +16,7 @@ You can install Source Organiser using the command: `pip install source-organise
 - `remove`: Removes the current folder.
     - Add '--noprompt' or '-n' to remove confirmation prompts.
 - `exit`:   Quits the CLI interface.
+- `generate-metadata`: Regenerates metadata files.
 - `help`:   Display the help message.
 - `info`:   Display information about the selected folder.
 - `log`:    Load the folder's log file.
